@@ -19,7 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
             displayProducts(data);
         })
         .catch(error => {
-
+   // Task 4: Handle Errors Gracefully
+            // Display user-friendly error message
+            errorMessage.textContent = 'Failed to load products. Please try again later.';
+            console.error('Fetch error:', error);
+        });
+});
 
 
 // Task 3: Display Product Details Dynamically
