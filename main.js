@@ -19,3 +19,28 @@ document.addEventListener('DOMContentLoaded', () => {
             displayProducts(data);
         })
         .catch(error => {
+
+
+
+// Task 3: Display Product Details Dynamically
+function displayProducts(products) {
+    // Get the product container element
+    const productContainer = document.getElementById('productContainer');
+
+    // Loop through each product and create elements
+    products.forEach(product => {
+        // Create a div element for each product
+        const productElement = document.createElement('div');
+
+        // Add HTML content for the product
+        productElement.innerHTML = `
+            <img src="${product.fields.image[0].url}" alt="${product.fields.name}">
+            <h2>${product.fields.name}</h2>
+            <p>Company: ${product.fields.company}</p>
+            <p>Price: $${product.fields.price / 100}</p>
+        `;
+
+        // Add the product element to the container
+        productContainer.appendChild(productElement);
+    });
+}
